@@ -80,12 +80,21 @@ function getRandomQuote(){
 // Create the printQuote funtion and name it printQuote
 
 function printQuote() {
-  var selectedQuote = getRandomQuote();
-    //document write to html
-  console.log(selectedQuote.date);
-  //document write to class="quote" randomQuote.quote
-  
 
+      //create an object var that holds the randomly-chosen quote object
+  var selectedQuote = getRandomQuote();
+      // query the classes for the quote paragraph and the source paragraph.
+          //Note: this assumes that there's only one instance each of these classes
+      //no need to get classes for year or citation. They're nested within .source so
+      // we can just rebuild that innerHTML pretty easily by concatenating the necessary parts.
+  var pQuote = document.querySelector(".quote") ;
+  var pAuthor = document.querySelector(".source") ;
+      //use innerHTML to insert quote text
+  pQuote.innerHTML = selectedQuote.quote ;
+      // use innerHTML to build the .source paragraph
+  pAuthor.innerHTML = selectedQuote.author +
+        '<span class="citation">' + selectedQuote.reference +
+        '</span><span class="year">' + selectedQuote.date + '</span>';
 
 }
 
