@@ -61,21 +61,19 @@ var quotes = [
   }
 
 ];
-console.log(quotes[0].quote);
+
 // Create the getRandomQuuote function and name it getRandomQuote
 
 function getRandomQuote(){
 
-  console.log(quotes.length);
       // get random integer between 0 and array length. since Math.floor rounds downward to nearest integer,
       // and arrays indexes begin at 0, the quotes.length and Math.floor match up nicely.
   var myRandomNumber = Math.floor(Math.random() * (quotes.length));
-  console.log(myRandomNumber);
       // set var to hold object at index of selected random integer
   var randomQuote = quotes[myRandomNumber] ;
       //return the randomly-selected object.
   return randomQuote;
-  }
+} //end getRandomQuote
 
 // Create the printQuote funtion and name it printQuote
 
@@ -96,9 +94,22 @@ function printQuote() {
         '<span class="citation">' + selectedQuote.reference +
         '</span><span class="year">' + selectedQuote.date + '</span>';
 
-}
+    //Random BG color
+      //set the bg color to a random hex color by setting parameters from 0 to 0xFFFFFF (white)
+      // then convert resulting integer to string hexidecimal value.
+      //The only random color that will not result is #FFFFFF or White.
+  document.body.style.backgroundColor = "#" + Math.floor(Math.random()*0xFFFFFF).toString(16) ;
 
+  //Random Button BG Color. Kinda ruins the hover effect, but, you know, extra credit?
 
+  var buttonBG = document.getElementById('loadQuote');
+  buttonBG.style.backgroundColor = "#" + Math.floor(Math.random()*0xFFFFFF).toString(16) ;
+
+} //end printQuote
+
+  //show a new quote after 7 seconds.
+var autoLoad = setInterval(printQuote, 7000);
+document.onload = autoLoad ;
 
 // This event listener will respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
