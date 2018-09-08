@@ -4,65 +4,65 @@
 
 var quotes = [
   {
-    "quote":      "some quote",
-    "author":     "some author",
-    "reference":  "origin",
-    "date":       "year",
-    "category":   "category1"
+    "quote":      "There are more things in heaven and earth, Horatio, Than are dreamt of in your philosophy.",
+    "author":     "William Shakespeare",
+    "reference":  "Hamlet, Act 1 scene 5",
+    "date":       "1599",
+    "category":   "Literature"
   },
   {
-    "quote":      "some quote2",
-    "author":     "some author2",
-    "reference":  "origin2",
-    "date":       "year2",
-    "category":   "category2"
+    "quote":      "We are what we pretend to be, so we must be very careful what we pretend to be.",
+    "author":     "Kurt Vonnegut",
+    "reference":  "Mother Night",
+    "date":       "1962",
+    "category":   "Literature"
   },
   {
-    "quote":      "some quote3",
-    "author":     "some author3",
-    "reference":  "origin3",
-    "date":       "year3",
-    "category":   "category1"
+    "quote":      "One cannot conceive anything so strange and so implausible that it has not already been said by one philosopher or another.",
+    "author":     "Rene Descartes",
+    "reference":  "Le Discours de la Methode",
+    "date":       "1637",
+    "category":   "Philosophy"
   },
   {
-    "quote":      "some quote4",
-    "author":     "some author4",
-    "reference":  "origin4",
-    "date":       "year4",
-    "category":   "category4"
+    "quote":      "A sense of duty is useful in work, but offensive in personal relations. People wish to be liked, not be endured with patient resignation.",
+    "author":     "Bertrand Russell",
+    "reference":  "Conquest of Happiness",
+    "date":       "1930",
+    "category":   "Philosophy"
   },
   {
-    "quote":      "some quote5",
-    "author":     "some author5",
-    "reference":  "origin5",
-    "date":       "year5",
-    "category":   "category5"
+    "quote":      "Politics ought to be the part-time profession of every citizen who would protect the rights and privileges of free people and who would preserve what is good and fruitful in our national heritage.",
+    "author":     "Dwight D. Eisenhower",
+    "reference":  "Address recorded for the Republican Lincoln Day dinners",
+    "date":       "1964",
+    "category":   "Politics"
   },
   {
-    "quote":      "some quote6",
-    "author":     "some author6",
-    "reference":  "origin6",
-    "date":       "year6",
-    "category":   "category6"
+    "quote":      "Practical politics consists in ignoring facts.",
+    "author":     "Henry Adams",
+    "reference":  "The Education of Henry Adams",
+    "date":       "1906",
+    "category":   "Politics"
   },
   {
-    "quote":      "some quote7",
-    "author":     "some author7",
-    "reference":  "origin7",
-    "date":       "year7",
-    "category":   "category7"
+    "quote":      "Writing gives you the illusion of control, and then you realize it's just an illusion, that people are going to bring their own stuff into it.",
+    "author":     "David Sedaris",
+    "reference":  "interview in Louisville Courier-Journal",
+    "date":       "2005",
+    "category":   "Literature"
   },
   {
-    "quote":      "some quote8",
-    "author":     "some author8",
-    "reference":  "origin8",
-    "date":       "year8",
-    "category":   "category8"
+    "quote":      "Beneath the rule of men entirely great, The pen is mightier than the sword.",
+    "author":     "Edward Bulwer-Lytton",
+    "reference":  "Richelieu",
+    "date":       "1839",
+    "category":   "Literature"
   }
 
 ];
 
-// Create the getRandomQuuote function and name it getRandomQuote
+// Create the getRandomQuote function and name it getRandomQuote
 
 function getRandomQuote(){
 
@@ -92,7 +92,8 @@ function printQuote() {
       // use innerHTML to build the .source paragraph
   pAuthor.innerHTML = selectedQuote.author +
         '<span class="citation">' + selectedQuote.reference +
-        '</span><span class="year">' + selectedQuote.date + '</span>';
+        '</span><span class="year">' + selectedQuote.date + '</span>' +
+          '<br><span class="category">[' + selectedQuote.category + ']</span>' ;
 
     //Random BG color
       //set the bg color to a random hex color by setting parameters from 0 to 0xFFFFFF (white)
