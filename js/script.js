@@ -61,27 +61,31 @@ var quotes = [
   }
 
 ];
-
+console.log(quotes[0].quote);
 // Create the getRandomQuuote function and name it getRandomQuote
 
-funtion getRandomQuote(){
-  //get total number of array items
-  var quotesLength = quotes.length + 1;
-  var myRandomNumber = Math.random() * (quotesLength - 0) + 0;
-  var randomQuote = quotes[myRandomNumber] ;
+function getRandomQuote(){
 
+  console.log(quotes.length);
+      // get random integer between 0 and array length. since Math.floor rounds downward to nearest integer,
+      // and arrays indexes begin at 0, the quotes.length and Math.floor match up nicely.
+  var myRandomNumber = Math.floor(Math.random() * (quotes.length));
+  console.log(myRandomNumber);
+      // set var to hold object at index of selected random integer
+  var randomQuote = quotes[myRandomNumber] ;
+      //return the randomly-selected object.
   return randomQuote;
-}
+  }
 
 // Create the printQuote funtion and name it printQuote
 
 function printQuote() {
-  getRandomQuote();
-  //document write to html
-
+  var selectedQuote = getRandomQuote();
+    //document write to html
+  console.log(selectedQuote.date);
   //document write to class="quote" randomQuote.quote
-
   
+
 
 }
 
