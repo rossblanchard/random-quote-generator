@@ -7,7 +7,7 @@ var quotes = [
     "quote":      "There are more things in heaven and earth, Horatio, Than are dreamt of in your philosophy.",
     "author":     "William Shakespeare",
     "reference":  "Hamlet, Act 1 scene 5",
-    "date":       "1599",
+    "date":       "",                        // "1599"
     "category":   "Literature"
   },
   {
@@ -41,23 +41,23 @@ var quotes = [
   {
     "quote":      "Practical politics consists in ignoring facts.",
     "author":     "Henry Adams",
-    "reference":  "The Education of Henry Adams",
+//    "reference":  "The Education of Henry Adams",
     "date":       "1906",
     "category":   "Politics"
   },
   {
     "quote":      "Writing gives you the illusion of control, and then you realize it's just an illusion, that people are going to bring their own stuff into it.",
-    "author":     "David Sedaris",
-    "reference":  "interview in Louisville Courier-Journal",
-    "date":       "2005",
-    "category":   "Literature"
+    "author":     "David Sedaris"
+  //  "reference":  "interview in Louisville Courier-Journal",
+  //  "date":       "2005",
+  //  "category":   "Literature"
   },
   {
     "quote":      "Beneath the rule of men entirely great, The pen is mightier than the sword.",
     "author":     "Edward Bulwer-Lytton",
     "reference":  "Richelieu",
-    "date":       "1839",
-    "category":   "Literature"
+    "date":       "1839"
+  //  "category":   "Literature"
   }
 
 ];
@@ -81,19 +81,25 @@ function printQuote() {
 
       //create an object var that holds the randomly-chosen quote object
   var selectedQuote = getRandomQuote();
-      // query the classes for the quote paragraph and the source paragraph.
-          //Note: this assumes that there's only one instance each of these classes
-      //no need to get classes for year or citation. They're nested within .source so
-      // we can just rebuild that innerHTML pretty easily by concatenating the necessary parts.
-  var pQuote = document.querySelector(".quote") ;
-  var pAuthor = document.querySelector(".source") ;
-      //use innerHTML to insert quote text
-  pQuote.innerHTML = selectedQuote.quote ;
-      // use innerHTML to build the .source paragraph
-  pAuthor.innerHTML = selectedQuote.author +
-        '<span class="citation">' + selectedQuote.reference +
-        '</span><span class="year">' + selectedQuote.date + '</span>' +
-          '<br><span class="category">[' + selectedQuote.category + ']</span>' ;
+
+    //create quoteString var to hold quote box html and build html out of
+  var quoteString
+  quoteString = '<p class="quote">' + selectedQuote.quote + '</p>' +
+                        '<p class="source">' + selectedQuote.author ;
+              // check whether the values for reference, date, category exist and only build spans for them if they exist.
+      if (selectedQuote.reference) {        // if no reference value, skip this span
+          quoteString = quoteString + '<span class="citation">' + selectedQuote.reference + '</span>' ;
+      }
+      if (selectedQuote.date) {             // if no year/date value, skip this span
+          quoteString = quoteString + '<span class="year">' + selectedQuote.date + '</span>' ;
+      }
+      if (selectedQuote.category) {     // if there's no category, don't build category span.
+          quoteString = quoteString + '<br><span class="category">[' + selectedQuote.category + ']</span>' ;
+      }
+      quoteString = quoteString + '</p>';  // close the class="source" para tag
+
+  var quoteBox = document.getElementById('quote-box') ; // create var containing the  element with 'quote-box' id
+  quoteBox.innerHTML = quoteString; //set innerHTML of quoteBox to the quoteString we built above
 
     //Random BG color
       //set the bg color to a random hex color by setting parameters from 0 to 0xFFFFFF (white)
@@ -101,15 +107,15 @@ function printQuote() {
       //The only random color that will not result is #FFFFFF or White.
   document.body.style.backgroundColor = "#" + Math.floor(Math.random()*0xFFFFFF).toString(16) ;
 
-  //Random Button BG Color. Kinda ruins the hover effect, but, you know, extra credit?
+    //Random BG Color for the button. Kinda ruins the hover effect, but, you know, extra credit?
 
   var buttonBG = document.getElementById('loadQuote');
   buttonBG.style.backgroundColor = "#" + Math.floor(Math.random()*0xFFFFFF).toString(16) ;
-
+  
 } //end printQuote
 
-  //show a new quote after 7 seconds.
-var autoLoad = setInterval(printQuote, 7000);
+  //show a new quote every 10 seconds regardless of button clicks.
+var autoLoad = setInterval(printQuote, 10000);
 document.onload = autoLoad ;
 
 // This event listener will respond to "Show another quote" button clicks
