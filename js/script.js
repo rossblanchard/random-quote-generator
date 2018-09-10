@@ -1,6 +1,7 @@
 // FSJS - Random Quote Generator
 
-// Create the array of quote objects and name it quotes
+// Array of quote objects
+// omiting some name:value pairs, leaving some values blank to demonstrate how code works when missing expected data.
 
 var quotes = [
   {
@@ -62,10 +63,9 @@ var quotes = [
 
 ];
 
-// Create the getRandomQuote function and name it getRandomQuote
+// Create function to select a random quote object from the array above.
 
 function getRandomQuote(){
-
       // get random integer between 0 and array length. since Math.floor rounds downward to nearest integer,
       // and arrays indexes begin at 0, the quotes.length and Math.floor match up nicely.
   var myRandomNumber = Math.floor(Math.random() * (quotes.length));
@@ -75,14 +75,12 @@ function getRandomQuote(){
   return randomQuote;
 } //end getRandomQuote
 
-// Create the printQuote funtion and name it printQuote
+// Create function that calls getRandomQuote and builds HTML output.
 
 function printQuote() {
-
       //create an object var that holds the randomly-chosen quote object
   var selectedQuote = getRandomQuote();
-
-    //create quoteString var to hold quote box html and build html out of
+    //create quoteString var to hold quote box html and build html out of fields from randomly-chosen object
   var quoteString
   quoteString = '<p class="quote">' + selectedQuote.quote + '</p>' +
                         '<p class="source">' + selectedQuote.author ;
@@ -111,10 +109,10 @@ function printQuote() {
 
   var buttonBG = document.getElementById('loadQuote');
   buttonBG.style.backgroundColor = "#" + Math.floor(Math.random()*0xFFFFFF).toString(16) ;
-  
+
 } //end printQuote
 
-  //show a new quote every 10 seconds regardless of button clicks.
+  // on page load show a new quote every 10 seconds regardless of button clicks.
 var autoLoad = setInterval(printQuote, 10000);
 document.onload = autoLoad ;
 
