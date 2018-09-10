@@ -63,7 +63,7 @@ var quotes = [
 
 ];
 
-// Create function to select a random quote object from the array above.
+// function to select a random quote object from the array above.
 
 function getRandomQuote(){
       // get random integer between 0 and array length. since Math.floor rounds downward to nearest integer,
@@ -75,12 +75,12 @@ function getRandomQuote(){
   return randomQuote;
 } //end getRandomQuote
 
-// Create function that calls getRandomQuote and builds HTML output.
+// function that calls getRandomQuote and builds HTML output.
 
 function printQuote() {
-      //create an object var that holds the randomly-chosen quote object
+      // object var that holds the randomly-chosen quote object
   var selectedQuote = getRandomQuote();
-    //create quoteString var to hold quote box html and build html out of fields from randomly-chosen object
+    // quoteString var to hold quote box html and build html out of fields from randomly-chosen object
   var quoteString
   quoteString = '<p class="quote">' + selectedQuote.quote + '</p>' +
                         '<p class="source">' + selectedQuote.author ;
@@ -96,7 +96,7 @@ function printQuote() {
       }
       quoteString = quoteString + '</p>';  // close the class="source" para tag
 
-  var quoteBox = document.getElementById('quote-box') ; // create var containing the  element with 'quote-box' id
+  var quoteBox = document.getElementById('quote-box') ; // var containing the  element with 'quote-box' id
   quoteBox.innerHTML = quoteString; //set innerHTML of quoteBox to the quoteString we built above
 
     //Random BG color
@@ -112,7 +112,7 @@ function printQuote() {
 
 } //end printQuote
 
-  // on page load show a new quote every 10 seconds regardless of button clicks.
+  // on page load shows a new quote every 10 seconds regardless of button clicks.
 var autoLoad = setInterval(printQuote, 10000);
 document.onload = autoLoad ;
 
