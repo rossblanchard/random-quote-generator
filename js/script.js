@@ -12,6 +12,13 @@ var quotes = [
     "category":   "Literature"
   },
   {
+    "quote":      "No man, for any considerable period, can wear one face to himself and another to the multitude, without finally getting bewildered as to which may be the true.",
+    "author":     "Nathaniel Hawthorne",
+    "reference":  "The Scarlet Letter",
+    "date":       "1850",                      
+    "category":   "Literature"
+  },
+  {
     "quote":      "We are what we pretend to be, so we must be very careful what we pretend to be.",
     "author":     "Kurt Vonnegut",
     "reference":  "Mother Night",
@@ -38,6 +45,13 @@ var quotes = [
     "reference":  "Address recorded for the Republican Lincoln Day dinners",
     "date":       "1964",
     "category":   "Politics"
+  },
+  {
+    "quote":      "No man ever steps in the same river twice, for it’s not the same river and he’s not the same man.",
+    "author":     "Heraclitus",
+  //  "reference":  "spoken by Heraclitus",
+    "date":       "544 b.c.",
+    "category":   "philosophy"
   },
   {
     "quote":      "Practical politics consists in ignoring facts.",
