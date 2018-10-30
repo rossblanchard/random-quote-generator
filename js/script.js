@@ -3,6 +3,7 @@
 // Array of quote objects
 // omiting some name:value pairs, leaving some values blank to demonstrate how code works when missing expected data.
 
+/*
 var quotes = [
   {
     "quote":      "There are more things in heaven and earth, Horatio, Than are dreamt of in your philosophy.",
@@ -76,6 +77,7 @@ var quotes = [
   }
 
 ];
+*/
 
 // function to select a random quote object from the array above.
 
